@@ -70,7 +70,7 @@ function showMessage(input, message, type) {
     let nameValid = hasValue(form.elements["firstname"], NAME_REQUIRED);
     let emailValid = validateEmail(form.elements["email"], EMAIL_REQUIRED, EMAIL_INVALID);
     let passwordValid = validatePassword(form.elements["password"], PASSWORD_REQUIRED);
-    let confirmValid = validatePassword2(form.elements["Cpassword"], CONFIRMPASSWORD_REQUIRED, PASSWORDS_NOT_MATCHING) 
+    let confirmValid = validatePassword2(form.elements["Cpassword"], CONFIRMPASSWORD_REQUIRED, PASSWORDS_NOT_MATCHING);
     
 
     // Comparing values of password
