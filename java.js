@@ -6,6 +6,18 @@ function showMessage(input, message, type) {
   return type;
 }
 
+const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+ 
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+           
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+ 
 function showError(input, message) {
   return showMessage(input, message, false);
 }
@@ -18,6 +30,7 @@ function hasValue(input, message) {
   if (input.value.trim() === "") {
       return showError(input, message);
   }
+  
   return showSuccess(input);
 }
 
@@ -25,7 +38,12 @@ function validatePassword(input, requiredMsg) {
   if (!hasValue(input, requiredMsg)) {
       return false;
   }
-  return true;
+  const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+  const password = input.value.trim();
+  if (!passwordRegex.test(password)) {
+    return showError(input, "Password must contain at least one digit, one uppercase letter, and one special character");
+  }
+  return showSuccess(input);
 }
 
 function validateEmail(input, requiredMsg, invalidMsg) {
@@ -63,5 +81,6 @@ form.addEventListener("submit", function (event) {
 
   if (nameValid && emailValid && passwordValid && confirmValid) {
       alert("No form was posted, this is just a DOM practice");
+      form.reset();
   }
 });
