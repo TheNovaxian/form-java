@@ -1,0 +1,76 @@
+body{
+  
+    background-color: rgb(99, 9, 99);
+   
+    font: 100% /normal sans-serif;
+    
+}
+
+/* to center the form */
+.container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+
+}
+
+#form{
+    width: 300px;
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    border-radius: 10px;
+   
+}
+
+#form input[type="text"],
+#form input[type="email"],
+#form input[type="password"] {
+    display: block;
+    width: calc(100% - 10px);
+    height: 30px;
+    margin-bottom: au;
+
+}
+
+#form button{
+    width:100% ;
+    height: 50px;
+    background-color: rgb(71, 181, 240);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(71, 181, 240);
+}
+
+#form h4{
+    text-align: center;
+}
+
+#form label{
+display: inline-block;
+}
+
+.password-input {
+    position: relative;
+}
+
+/* moving the eye around */
+#togglePassword {
+    position: absolute;
+    top: 45%;
+    right:5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.input.success input{
+   border-color: blue;
+}
+
+.error{
+    border-color: rgb(255, 0, 242);
+    font-size: 12px;
+    height: 11px;
+    color:red;
+   margin-bottom: 10px;
+}
