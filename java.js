@@ -11,6 +11,21 @@ function showMessage(input, message, type) {
     return type;
   }
   
+    //Function to toggle passowrd visibility based on clicking the eye
+function togglePassword() {
+  const passwordInput = document.getElementById('password');
+  const toggleIcon = document.getElementById('togglePassword');
+
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleIcon.classList.remove('bi-eye-slash');
+    toggleIcon.classList.add('bi-eye');
+  } else {
+    passwordInput.type = 'password';
+    toggleIcon.classList.remove('bi-eye');
+    toggleIcon.classList.add('bi-eye-slash');
+  }
+}
   function showError(input, message) {
     return showMessage(input, message, false);
   }
@@ -36,7 +51,6 @@ function showMessage(input, message, type) {
     if (!hasValue(input, requiredMsg)){
       return false;
     }
-    return true;
   }
   function validateEmail(input, requiredMsg, invalidMsg) {
     // Check if the value is not empty
@@ -85,18 +99,3 @@ function showMessage(input, message, type) {
     }
   });
 
-  //Function to toggle passowrd visibility based on clicking the eye
-function togglePassword() {
-    const passwordInput = document.getElementById('password');
-    const toggleIcon = document.getElementById('togglePassword');
-  
-    if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      toggleIcon.classList.remove('bi-eye-slash');
-      toggleIcon.classList.add('bi-eye');
-    } else {
-      passwordInput.type = 'password';
-      toggleIcon.classList.remove('bi-eye');
-      toggleIcon.classList.add('bi-eye-slash');
-    }
-  }
