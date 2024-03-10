@@ -1,6 +1,6 @@
 body{
-  
-    background-color: rgb(99, 9, 99);
+     background-image: url(back.jpg);
+    background-color: rgb(45, 12, 91);
    
     font: 100% /normal sans-serif;
     
@@ -17,6 +17,7 @@ body{
 
 #form{
     width: 300px;
+    background-image: url(formback.jpg);
     background-color: rgb(245, 245, 245);
     padding: 20px;
     border-radius: 10px;
