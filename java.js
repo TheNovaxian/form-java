@@ -6,6 +6,7 @@ function showMessage(input, message, type) {
   return type;
 }
 
+// Toggle password function with the eye
 const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
  
@@ -34,6 +35,7 @@ function hasValue(input, message) {
   return showSuccess(input);
 }
 
+//Password Validation
 function validatePassword(input, requiredMsg) {
   if (!hasValue(input, requiredMsg)) {
       return false;
@@ -46,18 +48,21 @@ function validatePassword(input, requiredMsg) {
   return showSuccess(input);
 }
 
+//Postal code validation
 function validatePost(input, requiredMsg) {
   if (!hasValue(input, requiredMsg)) {
       return false;
   }
-  const postalRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
+  const postalRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$|(^\d{5}$)|(^\d{5}-\d{4}$)/i ;
   const postal = input.value.trim();
+  
   if (!postalRegex.test(postal)) {
     return showError(input, "invalid postal code format");
   }
   return showSuccess(input);
 }
 
+//Email validation
 function validateEmail(input, requiredMsg, invalidMsg) {
   if (!hasValue(input, requiredMsg)) {
       return false;
@@ -66,7 +71,9 @@ function validateEmail(input, requiredMsg, invalidMsg) {
   const email = input.value.trim();
   if (!emailRegex.test(email)) {
       return showError(input, invalidMsg);
+      
   }
+
   return showSuccess(input);
 }
 
@@ -79,7 +86,7 @@ const PASSWORD_REQUIRED = "Please enter a password";
 const CONFIRMPASSWORD_REQUIRED = "Please confirm your password";
 const PASSWORDS_NOT_MATCHING = "Passwords do not match";
 const POSTAL_REQUIRED = "Please enter your postal code";
-const POSTAL_VALID = "Invalid postal code format"
+const POSTAL_INVALID = "Invalid postal code format"
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -88,7 +95,7 @@ form.addEventListener("submit", function (event) {
   let emailValid = validateEmail(form.elements["email"], EMAIL_REQUIRED, EMAIL_INVALID);
   let passwordValid = validatePassword(form.elements["password"], PASSWORD_REQUIRED);
   let confirmValid = validatePassword(form.elements["Cpassword"], CONFIRMPASSWORD_REQUIRED);
-  let postalValid = validatePost(form.elements["postal"],POSTAL_REQUIRED,POSTAL_VALID);
+  let postalValid = validatePost(form.elements["postal"],POSTAL_REQUIRED,POSTAL_INVALID);
 
   if (form.elements["password"].value !== form.elements["Cpassword"].value) {
       confirmValid = showError(form.elements["Cpassword"], PASSWORDS_NOT_MATCHING);
