@@ -78,3 +78,62 @@ margin-top: 10px;
    margin-bottom: 10px;
    
 }
+
+.popup{
+    width: 400px;
+    background-color: white;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    background-image: url("formback.jpg");
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 2);
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button{
+    width: 50%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color:rgb(71, 181, 240) ;
+    border-radius: 5px;
+     margin: 0 10px;   
+     border: 1px solid rgb(71, 181, 240) ;
+     color: white;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 2);
+}
+
+.popup a{
+    text-decoration: none;
+    color: white;
+}
+
+.buttoncontainer{
+    display: flex;
+    flex-direction: row;
+}

@@ -6,6 +6,16 @@ function showMessage(input, message, type) {
   return type;
 }
 
+let popup = document.getElementById("popup");
+
+function openpopup(){
+  popup.classList.add("open-popup")
+}
+
+function closepopup(){
+  popup.classList.remove("open-popup")
+}
+
 // Toggle password function with the eye
 const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
@@ -102,7 +112,10 @@ form.addEventListener("submit", function (event) {
   }
 
   if (nameValid && emailValid && passwordValid && confirmValid && postalValid) {
-      alert("No form was posted, this is just a DOM practice");
+      openpopup();
+      // alert("No form was posted, this is just a DOM practice");
       form.reset();
+  }else{
+    closepopup();
   }
 });

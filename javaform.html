@@ -53,9 +53,19 @@
 
              
 
-                   <button type="submit" id="subbutt">Subscribe</button>
+                   <button type="submit" id="subbutt" onclick="openpopup()">Subscribe</button>
         </form>
-
+        <div class="popup" id="popup">
+          <img src="confirm2.png">
+          <h2>CONFIRM YOUR INFO</h2>
+          <div id="info"></div>
+          <div class="buttoncontainer">
+         <button class="popbutton"><a href="">Confirm</a></button>
+         <button class="popbutton" type="reset" onclick="closepopup()">Cancel</button>
+        </div>
+        </div>
     </div>
+
+       
 </body>
 </html>
