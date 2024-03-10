@@ -8,12 +8,29 @@ function showMessage(input, message, type) {
 
 let popup = document.getElementById("popup");
 
+// function to open and close pop up using the .open-popup class in css
 function openpopup(){
   popup.classList.add("open-popup")
 }
 
 function closepopup(){
   popup.classList.remove("open-popup")
+}
+
+// getting information for the pop up
+function updatePopupContent() {
+  const firstname = form.elements["firstname"].value;
+  const email = form.elements["email"].value;
+  const password = form.elements["password"].value;
+  const postal = form.elements["postal"].value;
+
+  const Ipop = document.getElementById("infopop");
+  Ipop.innerHTML = `
+      <p><b>Name:</b> ${firstname}</p>
+      <p><b>Email:</b> ${email}</p>
+      <p><b>Password:</b> ${password}</p>
+      <p><b>Postal Code:</b> ${postal}</p>
+  `;
 }
 
 // Toggle password function with the eye
@@ -112,9 +129,12 @@ form.addEventListener("submit", function (event) {
   }
 
   if (nameValid && emailValid && passwordValid && confirmValid && postalValid) {
+    // infofunction();
+    updatePopupContent();
       openpopup();
+     
       // alert("No form was posted, this is just a DOM practice");
-      form.reset();
+      // form.reset();
   }else{
     closepopup();
   }
