@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" defer src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+          <form id="form" >
+            <h1>Sign Up</h1>
+
+              <div class="input">
+                 <label for="firstname"> Full Name : </label><br>
+                 <input type="text" id="firstname" placeholder="Enter your Full Name" ><br>
+                   <!-- Error message to display -->
+                   <div class="error"></div>
+                   <div class="success"></div>
+
+                </div>
+
+                 <div class="input">
+                   <label for="email">Email :</label><br>
+                    <input type="email" id="email" placeholder="example@gmail.com"><br>
+                     <div class="error"></div>
+                </div>
+                
+                <div class="input password-input">
+                  <label for="postal"> Postal Code </label><br>
+                   <input id="postal"  type="text" placeholder="Enter your CA postal code"><br>
+                  
+                    <div class="error"></div>
+                  </div>
+
+                  <div class="input password-input">
+                    <label for="city"> Select Your City </label><br>
+                    <select id="city">
+                        <option value="" selected>Select Your City</option>
+                        <option value="Montreal">Montreal</option>
+                        <option value="Ottawa">Ottawa</option>
+                        <option value="	Trois-Rivières">Trois-Rivières</option>
+                        <option value="New York">New York</option>
+                        <option value="Drummondville">Drummondville</option>
+                    </select>
+                    
+                      <div class="error"></div>
+                    </div>
+
+             <div class="input password-input">
+              <label for="password"> Password : </label><br>
+               <input id="password"  type="password" placeholder="Enter your password"><br>
+                 <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePassword()"></i>
+                <div class="error"></div>
+              </div>
+
+              <div class="input password-input">
+                <label> Confirm Password : </label><br>
+                 <input id="Cpassword"  type="password" placeholder="Re-enter password"><br>
+                
+                  <div class="error"></div>
+                </div>
+
+             
+
+                   <button type="submit" id="subbutt" onclick="openpopup()">Subscribe</button>
+        </form>
+        <div class="popup" id="popup">
+          <img src="confirm2.png">
+          <h2>CONFIRM YOUR INFO</h2>
+          <div id="infopop"></div>
+          <div class="buttoncontainer">
+         <button class="popbutton"><a href="//https:www.codeacademy.com">Confirm</a></button>
+         <button class="popbutton" type="reset" onclick="closepopup()">Cancel</button>
+        </div>
+        </div>
+    </div>
+
+       
+</body>
+</html>
