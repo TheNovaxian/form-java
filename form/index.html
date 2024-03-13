@@ -21,7 +21,7 @@
                  <input type="text" id="firstname" placeholder="Enter your Full Name" ><br>
                    <!-- Error message to display -->
                    <div class="error"></div>
-                   <div class="success"></div>
+                
 
                 </div>
 
@@ -48,7 +48,7 @@
                         <option value="New York">New York</option>
                         <option value="Drummondville">Drummondville</option>
                     </select>
-                    
+                    <button id="remove" onclick="Rcity()">Remove City</button>
                       <div class="error"></div>
                     </div>
 
@@ -62,7 +62,7 @@
               <div class="input password-input">
                 <label> Confirm Password : </label><br>
                  <input id="Cpassword"  type="password" placeholder="Re-enter password"><br>
-                
+                 <i class="bi bi-eye-slash" id="togglePassword2" onclick="togglePassword2()"></i>
                   <div class="error"></div>
                 </div>
 
@@ -75,7 +75,7 @@
           <h2>CONFIRM YOUR INFO</h2>
           <div id="infopop"></div>
           <div class="buttoncontainer">
-         <button class="popbutton"><a href="//https:www.codeacademy.com">Confirm</a></button>
+         <button class="popbutton" id="popbuttonC" onclick="downloadFile()">Confirm</button>
          <button class="popbutton" type="reset" onclick="closepopup()">Cancel</button>
         </div>
         </div>

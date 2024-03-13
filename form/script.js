@@ -17,6 +17,27 @@ function showMessage(input, message, type) {
     popup.classList.remove("open-popup")
   }
   
+  // Function to remove city and replace with another
+ function Rcity(){
+    const city = document.getElementById('city');
+    var newcity = "Gatineau";
+    value = city.selectedIndex;
+    
+    var option = document.createElement("option")
+    option.text = newcity;
+    option.value = newcity;
+
+    city.removeChild(city[value]);
+    city.add(option);
+    city.selectedIndex = city.options.length -1;
+    
+    const button = document.getElementById('remove');
+    button.style.display = 'none';
+ }
+
+ 
+ 
+
   // getting information for the pop up
   function updatePopupContent() {
     const firstname = form.elements["firstname"].value;
@@ -47,6 +68,19 @@ function showMessage(input, message, type) {
               // toggle the icon
               this.classList.toggle("bi-eye");
           });
+
+          const togglePassword2 = document.querySelector("#togglePassword2");
+          const Cpassword = document.querySelector("#Cpassword");
+   
+          togglePassword2.addEventListener("click", function () {
+              // toggle the type attribute
+              const type = Cpassword.getAttribute("type") === "password" ? "text" : "password";
+              Cpassword.setAttribute("type", type);
+             
+              // toggle the icon
+              this.classList.toggle("bi-eye");
+          });
+
    
   function showError(input, message) {
     return showMessage(input, message, false);
@@ -105,6 +139,35 @@ function showMessage(input, message, type) {
   
     return showSuccess(input);
   }
+
+  //function to download information
+  function downloadFile(){
+    const firstname = form.elements["firstname"].value;
+    const email = form.elements["email"].value;
+    const password = form.elements["password"].value;
+    const postal = form.elements["postal"].value;
+    const city = form.elements["city"].value;
+
+    const text = `
+    Name: ${firstname}
+    Email:${email}
+    Password:${password}
+    City:${city}
+    Postal Code:${postal}
+`;
+const blob = new Blob([text], {type: "text/plain"});
+const url = URL.createObjectURL(blob);
+
+     const a = document.createElement("a");
+     a.href = url;
+     a.download = "yourname_data.txt";
+     document.body.appendChild(a);
+     a.click();
+
+     URL.revokeObjectURL(url);
+     document.body.removeChild(a);
+  }
+
   
   const form = document.querySelector("form");
   

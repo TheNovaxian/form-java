@@ -1,6 +1,6 @@
 body{
     background-image: url(back.jpg);
-   background-color: rgb(45, 12, 91);
+   background-color: rgb(255, 255, 255);
   
    font: 100% /normal sans-serif;
    
@@ -55,6 +55,22 @@ height: 100vh;
   cursor: pointer;
 }
 
+#form button#remove{
+    width:35% ;
+    height: 30px;
+    background-color: rgba(0, 247, 255, 0.6);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(71, 181, 240);
+   margin-top: 10px;
+   cursor: pointer;
+   ;
+ }
+
+ .hide-button{
+    visibility: hidden;
+ }
+
 #form h1{
    text-align: center;
 }
@@ -76,6 +92,14 @@ margin-top: 10px;
    transform: translateY(-50%);
    cursor: pointer;
 }
+
+#togglePassword2 {
+    position: absolute;
+    top: 45%;
+    right:5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+ }
 
 .input.success input{
   border-color: blue;
