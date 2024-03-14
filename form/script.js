@@ -1,8 +1,8 @@
 function showMessage(input, message, type) {
     const error = input.parentNode.querySelector(".error");
     error.innerText = message;
-    input.classList.remove("success", "error");
-    input.classList.add(type ? "success" : "error");
+    input.classList.remove("success", ".error");
+    input.classList.add(type ? "success" : ".error");
     return type;
   }
   
@@ -100,31 +100,32 @@ function showMessage(input, message, type) {
     return showMessage(input, "", true);
   }
   
-  function showSuccess2(input) {
-    const error = input.parentNode.querySelector(".error");
-    error.innerText = "";
-    input.classList.remove("error");
-    input.classList.add("success");
-    return true;
-}
-function showError2(input, message) {
-  const error = input.parentNode.querySelector(".error");
-  error.innerText = message;
-  return false;
-}
+//   function showSuccess2(input) {
+//     const error = input.parentNode.querySelector(".error");
+//     error.innerText = "";
+//     input.classList.remove("error");
+//     input.classList.add("success");
+//     return true;
+// }
+// function showError2(input, message) {
+//   const error = input.parentNode.querySelector(".error");
+//   error.innerText = message;
+//   return false;
+// }
   function hasValue(input, message) {
     if (input.value.trim() === "") {
         return showError(input, message);
     }
     
-    return showSuccess(input);
+    showSuccess(input);
+    return true;
   }
  
   function hasValueC(input, message) {
     if (input.value === "holder") {
-      return showError2(input, message);
+      return showError(input, message);
   }
-  showSuccess2(input);
+  showSuccess(input);
   return true;
 }
 
