@@ -20,9 +20,18 @@ function showMessage(input, message, type) {
     if (input.value === "holder") {
       return showError(input, message);
   }
-  return showSuccess(input);
+  return showSuccess(selectedIndex);
 }
+
  
+// function hasValueC(){
+//   var select = document.getElementById("city");
+//   // alert(select.options[select.selectedIndex].value);
+//   if (select.options[select.selectedIndex].value === "holder") {
+//           return showError(select.options[select.selectedIndex]);
+//       }
+// }
+
   // Function to remove city and replace with another
  function Rcity(){
     const city = document.getElementById('city');
