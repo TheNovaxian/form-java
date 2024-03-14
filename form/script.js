@@ -16,12 +16,7 @@ function showMessage(input, message, type) {
   function closepopup(){
     popup.classList.remove("open-popup")
   }
-  function hasValueC(input, message) {
-    if (input.value === "holder") {
-      return showError(input, message);
-  }
-  return showSuccess(selectedIndex);
-}
+
 
  
 // function hasValueC(){
@@ -105,6 +100,18 @@ function showMessage(input, message, type) {
     return showMessage(input, "", true);
   }
   
+  function showSuccess2(input) {
+    const error = input.parentNode.querySelector(".error");
+    error.innerText = "";
+    input.classList.remove("error");
+    input.classList.add("success");
+    return true;
+}
+function showError2(input, message) {
+  const error = input.parentNode.querySelector(".error");
+  error.innerText = message;
+  return false;
+}
   function hasValue(input, message) {
     if (input.value.trim() === "") {
         return showError(input, message);
@@ -113,7 +120,13 @@ function showMessage(input, message, type) {
     return showSuccess(input);
   }
  
-
+  function hasValueC(input, message) {
+    if (input.value === "holder") {
+      return showError2(input, message);
+  }
+  showSuccess2(input);
+  return true;
+}
 
   
   
