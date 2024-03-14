@@ -16,11 +16,17 @@ function showMessage(input, message, type) {
   function closepopup(){
     popup.classList.remove("open-popup")
   }
-  
+  function hasValueC(input, message) {
+    if (input.value === "holder") {
+      return showError(input, message);
+  }
+  return showSuccess(input);
+}
+ 
   // Function to remove city and replace with another
  function Rcity(){
     const city = document.getElementById('city');
-    var newcity = "Gatineau";
+    const newcity = "Gatineau";
     value = city.selectedIndex;
     
     var option = document.createElement("option")
@@ -29,7 +35,7 @@ function showMessage(input, message, type) {
 
     city.removeChild(city[value]);
     city.add(option);
-    city.selectedIndex = city.options.length -1;
+    city.selectedIndex = value;
     
     const button = document.getElementById('remove');
     button.style.display = 'none';
@@ -97,6 +103,10 @@ function showMessage(input, message, type) {
     
     return showSuccess(input);
   }
+ 
+
+
+  
   
   //Password Validation
   function validatePassword(input, requiredMsg) {
@@ -106,7 +116,7 @@ function showMessage(input, message, type) {
     const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{6,}$/;
     const password = input.value.trim();
     if (!passwordRegex.test(password)) {
-      return showError(input, "Password must be atleast 6 characters, contain at least one digit,and one special character");
+      return showError(input, "Password must be atleast 6 characters,one Capital letter,at least one digit,and one special character");
     }
     return showSuccess(input);
   }
@@ -189,7 +199,7 @@ const url = URL.createObjectURL(blob);
     let passwordValid = validatePassword(form.elements["password"], PASSWORD_REQUIRED);
     let confirmValid = validatePassword(form.elements["Cpassword"], CONFIRMPASSWORD_REQUIRED);
     let postalValid = validatePost(form.elements["postal"],POSTAL_REQUIRED,POSTAL_INVALID);
-    let cityValid = hasValue(form.elements["city"],CITY_REQUIRED);
+    let cityValid = hasValueC(form.elements["city"],CITY_REQUIRED);
   
     if (form.elements["password"].value !== form.elements["Cpassword"].value) {
         confirmValid = showError(form.elements["Cpassword"], PASSWORDS_NOT_MATCHING);
@@ -197,6 +207,7 @@ const url = URL.createObjectURL(blob);
   
     if (nameValid && emailValid && passwordValid && confirmValid && postalValid && cityValid) {
       // infofunction();
+      
       updatePopupContent();
         openpopup();
        
