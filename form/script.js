@@ -18,36 +18,26 @@ function showMessage(input, message, type) {
   }
 
 
- 
-// function hasValueC(){
-//   var select = document.getElementById("city");
-//   // alert(select.options[select.selectedIndex].value);
-//   if (select.options[select.selectedIndex].value === "holder") {
-//           return showError(select.options[select.selectedIndex]);
-//       }
-// }
-
   // Function to remove city and replace with another
- function Rcity(){
-    const city = document.getElementById('city');
-    const newcity = "Gatineau";
-    value = city.selectedIndex;
+  function Rcity(){
+    var liste = document.getElementById("city");
+    var elementTodelete = "New York";
+    var elementToreplace = "Gatineau";
     
-    var option = document.createElement("option")
-    option.text = newcity;
-    option.value = newcity;
-
-    city.removeChild(city[value]);
-    city.add(option);
-    city.selectedIndex = value;
-    
+    for (var i = 0; i < liste.options.length; i++) {
+        if (liste.options[i].text === elementTodelete) {
+            liste.remove(i);
+            var newOption = document.createElement("option");
+            newOption.text = elementToreplace;
+            newOption.value = "Gatineau"; 
+            liste.add(newOption);
+            break;
+        }
+    }
     const button = document.getElementById('remove');
     button.style.display = 'none';
- }
-
- 
- 
-
+   }
+  
   // getting information for the pop up
   function updatePopupContent() {
     const firstname = form.elements["firstname"].value;
@@ -100,18 +90,7 @@ function showMessage(input, message, type) {
     return showMessage(input, "", true);
   }
   
-//   function showSuccess2(input) {
-//     const error = input.parentNode.querySelector(".error");
-//     error.innerText = "";
-//     input.classList.remove("error");
-//     input.classList.add("success");
-//     return true;
-// }
-// function showError2(input, message) {
-//   const error = input.parentNode.querySelector(".error");
-//   error.innerText = message;
-//   return false;
-// }
+
   function hasValue(input, message) {
     if (input.value.trim() === "") {
         return showError(input, message);
@@ -193,12 +172,16 @@ const url = URL.createObjectURL(blob);
 
      const a = document.createElement("a");
      a.href = url;
-     a.download = "yourname_data.txt";
+     a.download = "ShaquilleNeil_data.txt";
      document.body.appendChild(a);
      a.click();
 
+     closepopup();
+
      URL.revokeObjectURL(url);
      document.body.removeChild(a);
+
+    form.reset();
   }
 
   
@@ -229,7 +212,7 @@ const url = URL.createObjectURL(blob);
     }
   
     if (nameValid && emailValid && passwordValid && confirmValid && postalValid && cityValid) {
-      // infofunction();
+    
       
       updatePopupContent();
         openpopup();
